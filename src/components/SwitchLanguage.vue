@@ -1,9 +1,13 @@
 <template>
   <div>
-    <RadioGroup v-model="language" type="button" size="large">
-      <Radio label="CN">CN 简体中文</Radio>
-      <Radio label="JP">JP 日本語</Radio>
-    </RadioGroup>
+    <v-btn-toggle v-model="language" mandatory>
+      <v-btn flat value="CN">
+        CN 简体中文
+      </v-btn>
+      <v-btn flat value="JP">
+        JP 日本語
+      </v-btn>
+    </v-btn-toggle>
   </div>
 </template>
 

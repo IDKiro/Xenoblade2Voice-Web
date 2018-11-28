@@ -1,5 +1,5 @@
 <template>
-  <aplayer :music="playList[0]" :list="playList" repeat="none" ref="player"/>
+  <aplayer theme="#ccc" :music="playList[0]" :list="playList" repeat="none" ref="player"/>
 </template>
 
 <script>

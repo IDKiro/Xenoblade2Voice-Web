@@ -2,9 +2,9 @@
   <div class="scroll">
     <ul style="text-align: left;">
       <li v-for="chara in charaList" :key="chara.cid">
-        <Button type="text" ghost :name="chara.cid" @click="selectChara" >
+        <v-btn style="width: 90px; height: 90px" :name="chara.cid" block @click="selectChara" >
           <img :src="chara.img" :name="chara.cid"/>
-        </Button>
+        </v-btn>
       </li>
     </ul>
   </div>
@@ -38,12 +38,6 @@ export default {
     width: 90px;
     box-shadow:2px 2px 5px #333333;
   }
-  .card-body {
-    padding: 0.5rem;
-    text-align: center;
-    overflow: hidden;
-    font-size: 12px;
-  }
   ul {
     list-style-type: none;
     padding: 0;
@@ -51,7 +45,7 @@ export default {
   li {
     display: inline-block;
   }
-  .ivu-btn {
+  .v-btn {
     padding: 0;
     margin: 4px;
   }

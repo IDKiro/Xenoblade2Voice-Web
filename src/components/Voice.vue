@@ -1,11 +1,11 @@
 <template>
-  <Layout style="max-width: 1000px; margin: 0 auto;">
-    <Sider class="sidebar" width="411" style="background: #fff">
+  <div style="max-width: 1000px; margin: 0 auto;">
+    <div class="sidebar">
       <vue-scroll>
         <CharacterSelector/>
       </vue-scroll>
-    </Sider>
-    <Content class="main">
+    </div>
+    <div class="main">
       <player class="player"/>
       <SlideXLeftTransition>
         <div class="char-wrapper" v-show="ifShow">
@@ -19,14 +19,21 @@
       </FadeTransition>
       <div class="select-wrapper">
         <div class="selector">
-          <Button class="left" size="large" @click="showChar"><Icon type="ios-list" size="20" style="margin-top: -2.5px"/>选择角色</Button>
-          <switch-language class="right"/>
+          <div class="left">
+            <v-btn @click="showChar" style="margin: 0">
+              <v-icon color="#333" style="margin-top: 1px">reorder</v-icon>
+              选择角色
+            </v-btn>
+          </div>
+          <div class="right">
+            <switch-language/>
+          </div>
         </div>
         <selected-box :button-size="90"/>
       </div>
-      <talk-order class="talk-list" :height="tableHeight"/>
-    </Content>
-  </Layout>
+      <talk-order class="talk-list" :style="{height: tableHeight + 'px'}"/>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -86,10 +93,14 @@ export default {
 <style lang="scss">
   .sidebar {
     height: 100vh;
+    width: 401px;
     margin-right: 5px;
+    background: #fff;
     box-shadow: 2px 0 2px rgba(0, 0, 0, .15);
   }
   .main {
+    margin-top: -100vh;
+    margin-left: 401px;
     .char-wrapper {
       position: absolute;
       top: 0;
@@ -136,8 +147,12 @@ export default {
     .sidebar {
       display: none;
     }
-    .main .select-wrapper .selector .left {
-      display: flex;
+    .main {
+      margin-top: 0;
+      margin-left: 0;
+      .select-wrapper .selector .left {
+        display: flex;
+      }
     }
   }
 </style>

@@ -1,32 +1,22 @@
 <template>
-  <Table
-    class="talklist"
-    highlight-row
-    ref="currentRowTable"
-    :columns="columns"
-    :data="talkList"
-    :height="height"
-    @on-current-change="select"
-    size="small"
-    ></Table>
+  <div>
+    <vue-scroll>
+      <v-list subheader>
+        <v-list-tile v-for="item in talkList" :key="item.pattern" @click="select(item)">
+          <v-list-tile-content>
+            <v-list-tile-title style="font-size: 14px" v-html="item.text"></v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </vue-scroll>
+  </div>
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import {mapMutations} from 'vuex'
 
 export default {
-  props: {
-    height: Number
-  },
-  data () {
-    return {
-    }
-  },
   computed: {
-    columns () {
-      let patternCount = this.$store.getters.availablePatterns.length
-      return [{ title: '对话组合数: ' + patternCount, key: 'text' }]
-    },
     talkList () {
       return this.$store.getters.availablePatterns.map(
         pattern => {

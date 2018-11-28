@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="selected">
-      <Button @click="remove" v-for="i in box" :key="i" :cid="charaBoxList[i].cid" :style="{ width: buttonSize + 'px', height: buttonSize + 'px'}">
+      <v-btn @click="remove" v-for="i in box" :key="i" :cid="charaBoxList[i].cid" :style="{ width: buttonSize + 'px', height: buttonSize + 'px'}" >
         <img :src="charaBoxList[i].img" :cid="charaBoxList[i].cid" :style="{ width: buttonSize + 'px'}" />
-      </Button>
+      </v-btn>
     </div>
   </div>
 </template>
@@ -42,10 +42,5 @@ export default {
     text-align: center;
     display: flex;
     justify-content: space-between;
-  }
-  button {
-    padding: 0;
-    border-radius: 0;
-    box-sizing: content-box;
   }
 </style>
