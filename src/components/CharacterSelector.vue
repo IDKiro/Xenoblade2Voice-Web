@@ -18,7 +18,7 @@ export default {
     ...mapGetters(['charaList'])
   },
   methods: {
-    ...mapMutations(['addChara', 'setPattern']),
+    ...mapMutations(['addChara']),
 
     selectChara (event) {
       let cid = event.target.name
