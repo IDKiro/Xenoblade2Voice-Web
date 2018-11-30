@@ -37,11 +37,11 @@
 </template>
 
 <script>
-import CharacterSelector from '@/components/CharacterSelector.vue'
-import SelectedBox from '@/components/SelectedBox.vue'
-import TalkOrder from '@/components/TalkOrder.vue'
-import SwitchLanguage from '@/components/SwitchLanguage.vue'
-import Player from '@/components/Player.vue'
+import CharacterSelector from './CharacterSelector.vue'
+import SelectedBox from './SelectedBox.vue'
+import TalkOrder from './TalkOrder.vue'
+import SwitchLanguage from './SwitchLanguage.vue'
+import Player from './Player.vue'
 import {SlideXLeftTransition, FadeTransition} from 'vue2-transitions'
 
 export default {
