@@ -45,7 +45,7 @@ export default {
       ret.push(i)
     }
 
-    let dummyImg = require('../assets/image/placeholder.png')
+    let dummyImg = 'http://share.idkiro.xyz/xb2/image/placeholder.png'
     let i = state.selectedChara.length
     while (i < 3) {
       ret.push({
@@ -66,7 +66,7 @@ export default {
       let playList = []
       for (let voice in textObj) {
         playList.push({
-          src: require('../assets/music/' + voice + '.mp3'),
+          src: 'http://share.idkiro.xyz/xb2/music/' + voice + '.mp3',
           artist: textObj[voice][state.language].split('：')[0],
           title: textObj[voice][state.language].split('：')[1]
         })

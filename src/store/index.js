@@ -24,7 +24,7 @@ export default new Vuex.Store({
 function parseCharactor (charactor) {
   for (let cid in charactor) {
     charactor[cid]['cid'] = cid
-    charactor[cid]['img'] = require('../assets/image/' + cid + '.png')
+    charactor[cid]['img'] = 'http://share.idkiro.xyz/xb2/image/' + cid + '.png'
   }
   return charactor
 }
