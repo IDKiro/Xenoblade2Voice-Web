@@ -1,12 +1,25 @@
 <template>
   <div class="scroll">
-    <ul style="text-align: left;">
-      <li v-for="chara in charaList" :key="chara.cid">
-        <v-btn style="width: 90px; height: 90px" :name="chara.cid" block @click="selectChara" >
-          <img :src="chara.img" :name="chara.cid"/>
-        </v-btn>
-      </li>
-    </ul>
+    <v-card>
+      <div class="headline">本篇</div>
+      <ul style="text-align: left;">
+        <li v-for="chara in charaList" :key="chara.cid" v-if="chara.cid < 700 | chara.cid == '15a' | chara.cid == '15b'">
+          <v-btn style="width: 90px; height: 90px" :name="chara.cid" block @click="selectChara" >
+            <img :src="chara.img" :name="chara.cid"/>
+          </v-btn>
+        </li>
+      </ul>
+    </v-card>
+    <v-card style="margin-top: 5px;">
+      <div class="headline">黄金国</div>
+      <ul style="text-align: left;">
+        <li v-for="chara in charaList" :key="chara.cid" v-if="!(chara.cid < 700 | chara.cid == '15a' | chara.cid == '15b')">
+          <v-btn style="width: 90px; height: 90px" :name="chara.cid" block @click="selectChara" >
+            <img :src="chara.img" :name="chara.cid"/>
+          </v-btn>
+        </li>
+      </ul>
+    </v-card>
   </div>
 </template>
 

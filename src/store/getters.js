@@ -15,7 +15,7 @@ export default {
       ).reduce(
         (x, y) => x.concat(y)
       ).map(
-        cid => cid.replace('x', '')
+        cid => cid.replace(/[xyz]/, '')
       )
     )
 
@@ -72,7 +72,7 @@ export default {
         })
       }
 
-      let cids = state.selectedPattern.split('_').map(cid => cid.replace('x', ''))
+      let cids = state.selectedPattern.split('_').map(cid => cid.replace(/[xyz]/, ''))
       for (let trackId in playList) {
         let cid = cids[trackId]
         playList[trackId]['pic'] = state.charactor[cid].img
