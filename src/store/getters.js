@@ -35,6 +35,20 @@ export default {
       }
     )
 
+    // 去除本篇与黄金国互斥的角色
+    if (selectedCid.length > 0) {
+      if (selectedCid[0] < 700 | selectedCid[0] === '15a' | selectedCid[0] === '15b') {
+        state.ifMainShow = true
+        state.ifDLCShow = false
+      } else {
+        state.ifMainShow = false
+        state.ifDLCShow = true
+      }
+    } else {
+      state.ifMainShow = true
+      state.ifDLCShow = true
+    }
+
     // 按cid排序
     return charaList.sort((x, y) => parseInt(x.cid) - parseInt(y.cid))
   },
@@ -82,6 +96,14 @@ export default {
     }
 
     return []
+  },
+
+  ifMainShow (state) {
+    return state.ifMainShow
+  },
+
+  ifDLCShow (state) {
+    return state.ifDLCShow
   }
 }
 

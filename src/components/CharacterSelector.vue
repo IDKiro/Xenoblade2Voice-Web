@@ -1,6 +1,6 @@
 <template>
   <div class="scroll">
-    <v-card>
+    <v-card v-if="ifMainShow">
       <div class="headline">本篇</div>
       <ul style="text-align: left;">
         <li v-for="chara in charaList" :key="chara.cid" v-if="chara.cid < 700 | chara.cid == '15a' | chara.cid == '15b'">
@@ -10,7 +10,7 @@
         </li>
       </ul>
     </v-card>
-    <v-card style="margin-top: 5px;">
+    <v-card v-if="ifDLCShow" style="margin-top: 5px;">
       <div class="headline">黄金国</div>
       <ul style="text-align: left;">
         <li v-for="chara in charaList" :key="chara.cid" v-if="!(chara.cid < 700 | chara.cid == '15a' | chara.cid == '15b')">
@@ -28,7 +28,7 @@ import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   computed: {
-    ...mapGetters(['charaList'])
+    ...mapGetters(['charaList', 'ifMainShow', 'ifDLCShow'])
   },
   methods: {
     ...mapMutations(['addChara']),
