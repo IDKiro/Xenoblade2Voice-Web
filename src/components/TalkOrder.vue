@@ -2,7 +2,12 @@
   <div>
     <vue-scroll>
       <v-list subheader>
-        <v-list-tile v-for="item in talkList" :key="item.pattern" @click="select(item)">
+        <v-list-tile v-for="item in talkList" v-if="item.pattern.indexOf('70') == -1 & ifMainShow" :key="item.pattern" @click="select(item)">
+          <v-list-tile-content>
+            <v-list-tile-title style="font-size: 14px" v-html="item.text"></v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile v-for="item in talkList" v-if="item.pattern.indexOf('70') != -1 & ifDLCShow" :key="item.pattern" @click="select(item)">
           <v-list-tile-content>
             <v-list-tile-title style="font-size: 14px" v-html="item.text"></v-list-tile-title>
           </v-list-tile-content>
@@ -13,10 +18,11 @@
 </template>
 
 <script>
-import {mapMutations} from 'vuex'
+import {mapGetters, mapMutations} from 'vuex'
 
 export default {
   computed: {
+    ...mapGetters(['ifMainShow', 'ifDLCShow']),
     talkList () {
       return this.$store.getters.availablePatterns.map(
         pattern => {
